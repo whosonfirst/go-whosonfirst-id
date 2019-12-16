@@ -4,9 +4,7 @@ Go package for generating valid Who's On First IDs.
 
 ## What is this?
 
-This is a common Go package for generating valid Who's On First (WOF) IDs.
-
-It implements the [go-artisanal-interfaces.Client](https://github.com/aaronland/go-artisanal-integers#client) interface for generating new Who's On First IDs.
+This is a common Go package for generating valid Who's On First (WOF) IDs. It implements the [go-artisanal-integers.Client](https://github.com/aaronland/go-artisanal-integers#client) interface for generating new Who's On First IDs.
 
 Under the hood it uses a [go-uid.Provider](https://github.com/aaronland/go-uid) for generating those IDs, specifically a [go-uid-artisanal](https://github.com/aaronland/go-uid-artisanal) provider.
 
