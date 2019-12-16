@@ -8,9 +8,11 @@ This is a common Go package for generating valid Who's On First (WOF) IDs.
 
 It implements the [go-artisanal-interfaces.Client](https://github.com/aaronland/go-artisanal-integers#client) interface for generating new Who's On First IDs.
 
-Under the hood it uses a [go-uid-artisanal](https://github.com/aaronland/go-uid-artisanal) provider for generating those IDs. This provider allows you to specify alternative and/or multiple artisanal integer providers (the default provider for WOF is [Brooklyn Integers](https://brooklynintegers.com/)) as well as a customizable pool of pre-generated and acaches IDs using the [go-artisanal-integers-proxy](https://github.com/aaronland/go-artisanal-integers-proxy) and [go-pool](https://github.com/aaronland?utf8=%E2%9C%93&q=go-pool&type=&language=) packages.
+Under the hood it uses a [go-uid.Provider](https://github.com/aaronland/go-uid) for generating those IDs, specifically a [go-uid-artisanal](https://github.com/aaronland/go-uid-artisanal) provider.
 
-Note: The use of the [go-uid.UIDProvider](https://github.com/aaronland/go-uid) interface might be overkill. We'll see.
+This provider allows you to specify alternative and/or multiple artisanal integer providers (the default provider for WOF is [Brooklyn Integers](https://brooklynintegers.com/)) as well as a customizable pool of pre-generated and caches IDs using the [go-artisanal-integers-proxy](https://github.com/aaronland/go-artisanal-integers-proxy) and [go-pool](https://github.com/aaronland?utf8=%E2%9C%93&q=go-pool&type=&language=) packages.
+
+Note: The use of the [go-uid.Provider](https://github.com/aaronland/go-uid) interface might be overkill. We'll see.
 
 ## Example
 
