@@ -1,15 +1,18 @@
 package id
 
 import (
+	_ "github.com/aaronland/go-uid-whosonfirst"
+)
+
+import (
 	"context"
-	_ "github.com/aaronland/go-brooklynintegers-api"
+	"fmt"
 	"github.com/aaronland/go-uid"
-	"github.com/aaronland/go-uid-artisanal"
-	"strconv"
+	_ "github.com/aaronland/go-uid-proxy"
 )
 
 type Provider interface {
-	NewID() (int64, error)
+	NewID(context.Context) (int64, error)
 }
 
 type WOFProvider struct {
@@ -19,26 +22,8 @@ type WOFProvider struct {
 
 func NewProvider(ctx context.Context) (Provider, error) {
 
-	opts := &artisanal.ArtisanalProviderURIOptions{
-		Pool:    "memory://",
-		Minimum: 0,
-		Clients: []string{
-			"brooklynintegers://",
-		},
-	}
-
-	uri, err := artisanal.NewArtisanalProviderURI(opts)
-
-	if err != nil {
-		return nil, err
-	}
-
-	// str_uri ends up looking like this:
-	// artisanal:?client=brooklynintegers%3A%2F%2F&minimum=5&pool=memory%3A%2F%2F
-
-	str_uri := uri.String()
-
-	return NewProviderWithURI(ctx, str_uri)
+	uri := "proxy://?provider=whosonfirst://"
+	return NewProviderWithURI(ctx, uri)
 }
 
 func NewProviderWithURI(ctx context.Context, uri string) (Provider, error) {
@@ -46,7 +31,7 @@ func NewProviderWithURI(ctx context.Context, uri string) (Provider, error) {
 	uid_pr, err := uid.NewProvider(ctx, uri)
 
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("Failed to create new provider, %w", err)
 	}
 
 	wof_pr := &WOFProvider{
@@ -56,14 +41,19 @@ func NewProviderWithURI(ctx context.Context, uri string) (Provider, error) {
 	return wof_pr, nil
 }
 
-func (wof_pr *WOFProvider) NewID() (int64, error) {
+func (wof_pr *WOFProvider) NewID(ctx context.Context) (int64, error) {
 
-	uid, err := wof_pr.uid_provider.UID()
+	v, err := wof_pr.uid_provider.UID(ctx)
 
 	if err != nil {
-		return -1, err
+		return -1, fmt.Errorf("Failed to generate ID, %w", err)
 	}
 
-	str_id := uid.String()
-	return strconv.ParseInt(str_id, 10, 64)
+	id, ok := uid.AsInt64(v)
+
+	if !ok {
+		return -1, fmt.Errorf("Provider return invalid value")
+	}
+
+	return id, nil
 }
