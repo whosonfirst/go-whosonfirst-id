@@ -27,7 +27,7 @@ func TestNextInt(t *testing.T) {
 func TestNextIntWithURI(t *testing.T) {
 
 	uri := "artisanal:///?client=brooklynintegers%3A%2F%2F&minimum=5&pool=memory%3A%2F%2F"
-	
+
 	ctx := context.Background()
 	pr, err := NewProviderWithURI(ctx, uri)
 
