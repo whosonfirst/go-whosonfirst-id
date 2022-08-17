@@ -12,13 +12,13 @@ func TestNextInt(t *testing.T) {
 	pr, err := NewProvider(ctx)
 
 	if err != nil {
-		t.Fatal(err)
+		t.Fatalf("Failed to create provider, %v", err)
 	}
 
-	id, err := pr.NewID()
+	id, err := pr.NewID(ctx)
 
 	if err != nil {
-		t.Fatal(err)
+		t.Fatalf("Failed to generate new ID, %v", err)
 	}
 
 	fmt.Println(id)
@@ -26,19 +26,19 @@ func TestNextInt(t *testing.T) {
 
 func TestNextIntWithURI(t *testing.T) {
 
-	uri := "artisanal:///?client=brooklynintegers%3A%2F%2F&minimum=5&pool=memory%3A%2F%2F"
-
 	ctx := context.Background()
+
+	uri := "proxy://?provider=whosonfirst://&minimum=10"
 	pr, err := NewProviderWithURI(ctx, uri)
 
 	if err != nil {
-		t.Fatal(err)
+		t.Fatalf("Failed to create provider for %s, %v", uri, err)
 	}
 
-	id, err := pr.NewID()
+	id, err := pr.NewID(ctx)
 
 	if err != nil {
-		t.Fatal(err)
+		t.Fatalf("Failed to generate new ID, %v", err)
 	}
 
 	fmt.Println(id)
