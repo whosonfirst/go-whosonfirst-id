@@ -1,11 +1,13 @@
 module github.com/whosonfirst/go-whosonfirst-id
 
-go 1.18
+go 1.22
+
+toolchain go1.22.4
 
 require (
 	github.com/aaronland/go-uid v0.4.0
 	github.com/aaronland/go-uid-proxy v0.1.1
-	github.com/aaronland/go-uid-whosonfirst v0.0.4
+	github.com/aaronland/go-uid-whosonfirst v0.0.5
 )
 
 require (
