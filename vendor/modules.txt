@@ -4,9 +4,6 @@ github.com/aaronland/go-artisanal-integers/client
 # github.com/aaronland/go-brooklynintegers-api v1.2.7
 ## explicit; go 1.18
 github.com/aaronland/go-brooklynintegers-api
-# github.com/aaronland/go-log/v2 v2.0.0
-## explicit; go 1.18
-github.com/aaronland/go-log/v2
 # github.com/aaronland/go-pool/v2 v2.0.0
 ## explicit; go 1.18
 github.com/aaronland/go-pool/v2
@@ -22,8 +19,8 @@ github.com/aaronland/go-uid
 # github.com/aaronland/go-uid-artisanal v0.0.4
 ## explicit; go 1.18
 github.com/aaronland/go-uid-artisanal
-# github.com/aaronland/go-uid-proxy v0.1.1
-## explicit; go 1.18
+# github.com/aaronland/go-uid-proxy v0.2.0
+## explicit; go 1.22
 github.com/aaronland/go-uid-proxy
 # github.com/aaronland/go-uid-whosonfirst v0.0.5
 ## explicit; go 1.22

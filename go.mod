@@ -2,18 +2,15 @@ module github.com/whosonfirst/go-whosonfirst-id
 
 go 1.22
 
-toolchain go1.22.4
-
 require (
 	github.com/aaronland/go-uid v0.4.0
-	github.com/aaronland/go-uid-proxy v0.1.1
+	github.com/aaronland/go-uid-proxy v0.2.0
 	github.com/aaronland/go-uid-whosonfirst v0.0.5
 )
 
 require (
 	github.com/aaronland/go-artisanal-integers v0.9.1 // indirect
 	github.com/aaronland/go-brooklynintegers-api v1.2.7 // indirect
-	github.com/aaronland/go-log/v2 v2.0.0 // indirect
 	github.com/aaronland/go-pool/v2 v2.0.0 // indirect
 	github.com/aaronland/go-roster v1.0.0 // indirect
 	github.com/aaronland/go-string v1.0.0 // indirect
