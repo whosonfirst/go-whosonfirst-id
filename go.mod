@@ -4,7 +4,7 @@ go 1.22
 
 require (
 	github.com/aaronland/go-uid v0.4.0
-	github.com/aaronland/go-uid-proxy v0.3.0
+	github.com/aaronland/go-uid-proxy v0.3.1
 	github.com/aaronland/go-uid-whosonfirst v0.0.5
 	github.com/whosonfirst/go-whosonfirst-feature v0.0.28
 )
