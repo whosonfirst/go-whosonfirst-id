@@ -6,6 +6,15 @@ import (
 	"testing"
 )
 
+func TestNewID(t *testing.T) {
+
+	_, err := NewID()
+
+	if err != nil {
+		t.Fatalf("Failed to create new ID, %v", err)
+	}
+}
+
 func TestNextInt(t *testing.T) {
 
 	ctx := context.Background()
