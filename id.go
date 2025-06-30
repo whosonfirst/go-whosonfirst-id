@@ -1,14 +1,12 @@
 package id
 
 import (
-	_ "github.com/aaronland/go-uid-proxy"
-	_ "github.com/aaronland/go-uid-whosonfirst"
-)
-
-import (
 	"context"
 	"fmt"
 
+	_ "github.com/aaronland/go-uid-proxy"
+	_ "github.com/aaronland/go-uid-whosonfirst"
+	
 	"github.com/aaronland/go-uid"
 )
 
