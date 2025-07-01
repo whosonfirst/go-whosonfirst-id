@@ -38,6 +38,7 @@ type WOFProvider struct {
 // settings.
 func NewProvider(ctx context.Context) (Provider, error) {
 	uri := "proxy://?provider=whosonfirst://"
+	// uri := "proxy:///?provider=whosonfirst://&minimum=5&pool=memory%3A%2F%2F"
 	return NewProviderWithURI(ctx, uri)
 }
 
